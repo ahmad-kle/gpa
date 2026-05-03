@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Tajawal', sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #1a73e8 0%, #0d9488 100%);
     min-height: 100vh;
     padding: 20px;
 }
@@ -18,7 +18,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #1a73e8 0%, #0d9488 100%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -107,13 +107,14 @@ body {
     border-radius: 20px;
     margin-bottom: 25px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    backdrop-filter: blur(10px);
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
 .logo {
     font-size: 1.5rem;
     font-weight: 800;
-    color: #667eea;
+    color: #1a73e8;
 }
 
 .logo i {
@@ -122,7 +123,37 @@ body {
 
 .logo span span {
     font-weight: 300;
-    color: #764ba2;
+    color: #0d9488;
+}
+
+.header-controls {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.conversion-switch {
+    display: flex;
+    gap: 5px;
+    background: #f0f0f0;
+    border-radius: 40px;
+    padding: 4px;
+}
+
+.mode-btn {
+    padding: 6px 15px;
+    border: none;
+    background: transparent;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.mode-btn.active {
+    background: linear-gradient(135deg, #1a73e8, #0d9488);
+    color: white;
 }
 
 .language-switch {
@@ -131,7 +162,7 @@ body {
 }
 
 .lang-btn {
-    padding: 8px 20px;
+    padding: 6px 20px;
     border: none;
     background: #f0f0f0;
     border-radius: 30px;
@@ -142,7 +173,7 @@ body {
 }
 
 .lang-btn.active {
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(135deg, #1a73e8, #0d9488);
     color: white;
 }
 
@@ -161,7 +192,7 @@ body {
 }
 
 .card-header {
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(135deg, #1a73e8, #0d9488);
     color: white;
     padding: 18px 25px;
     display: flex;
@@ -201,10 +232,9 @@ body {
     padding: 25px;
 }
 
-/* شبكة الكليات */
 .college-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 15px;
     margin-bottom: 20px;
 }
@@ -212,7 +242,7 @@ body {
 .college-option {
     text-align: center;
     padding: 15px;
-    background: #f8f9ff;
+    background: #f0f9ff;
     border-radius: 15px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -221,17 +251,17 @@ body {
 
 .college-option:hover {
     transform: translateY(-3px);
-    background: #eef2ff;
+    background: #e0f2fe;
 }
 
 .college-option.active {
-    border-color: #667eea;
-    background: linear-gradient(135deg, #667eea15, #764ba215);
+    border-color: #1a73e8;
+    background: linear-gradient(135deg, #1a73e815, #0d948815);
 }
 
 .college-option i {
     font-size: 2rem;
-    color: #667eea;
+    color: #1a73e8;
     display: block;
     margin-bottom: 8px;
 }
@@ -242,8 +272,16 @@ body {
 }
 
 .college-option small {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     color: #666;
+    display: block;
+}
+
+.college-detail {
+    display: block;
+    font-size: 0.65rem;
+    color: #0d9488;
+    margin-top: 6px;
 }
 
 .custom-hours {
@@ -268,8 +306,8 @@ body {
 
 .input-field:focus {
     outline: none;
-    border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102,126,234,0.1);
+    border-color: #1a73e8;
+    box-shadow: 0 0 0 3px rgba(26,115,232,0.1);
 }
 
 .row-2 {
@@ -284,7 +322,6 @@ body {
     font-weight: 500;
 }
 
-/* حاويات المواد */
 .courses-container {
     display: flex;
     flex-direction: column;
@@ -292,7 +329,7 @@ body {
 }
 
 .course-item {
-    background: #f8f9ff;
+    background: #f0f9ff;
     border-radius: 15px;
     padding: 15px;
     display: grid;
@@ -338,14 +375,6 @@ body {
     transform: scale(1.1);
 }
 
-.ocr-result {
-    margin-top: 20px;
-    padding: 15px;
-    background: #f0fdf4;
-    border-radius: 15px;
-}
-
-/* أزرار الإجراءات */
 .action-buttons {
     display: flex;
     gap: 15px;
@@ -370,13 +399,13 @@ body {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(135deg, #1a73e8, #0d9488);
     color: white;
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(102,126,234,0.4);
+    box-shadow: 0 10px 25px rgba(26,115,232,0.4);
 }
 
 .btn-secondary {
@@ -389,12 +418,12 @@ body {
     transform: translateY(-2px);
 }
 
-/* بطاقة النتائج */
 .results-card {
     background: white;
     border-radius: 20px;
     padding: 25px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin-bottom: 25px;
 }
 
 .results-header {
@@ -408,7 +437,7 @@ body {
 
 .results-header i {
     font-size: 1.5rem;
-    color: #667eea;
+    color: #1a73e8;
 }
 
 .results-grid {
@@ -418,7 +447,7 @@ body {
 }
 
 .result-item {
-    background: #f8f9ff;
+    background: #f0f9ff;
     padding: 15px;
     border-radius: 15px;
     text-align: center;
@@ -434,9 +463,29 @@ body {
 .result-value {
     font-size: 2rem;
     font-weight: 800;
-    color: #667eea;
+    color: #1a73e8;
     margin: 0 5px;
 }
+
+.result-unit {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.evaluation-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.evaluation-badge.very-bad { background: #dc2626; color: white; }
+.evaluation-badge.bad { background: #ea580c; color: white; }
+.evaluation-badge.acceptable { background: #eab308; color: white; }
+.evaluation-badge.good { background: #16a34a; color: white; }
+.evaluation-badge.very-good { background: #059669; color: white; }
+.evaluation-badge.excellent { background: #0891b2; color: white; }
 
 .progress-section {
     grid-column: span 2;
@@ -451,17 +500,118 @@ body {
 }
 
 .progress-fill {
-    background: linear-gradient(90deg, #667eea, #764ba2);
+    background: linear-gradient(90deg, #1a73e8, #0d9488);
     height: 100%;
     width: 0%;
     transition: width 0.5s ease;
     border-radius: 30px;
 }
 
+/* بطاقة السنة الدراسية */
+.academic-year-card {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.academic-year {
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.academic-year.warning {
+    background: #fffbeb;
+    border-right: 4px solid #f59e0b;
+}
+
+.academic-year.eligible {
+    background: #ecfdf5;
+    border-right: 4px solid #10b981;
+}
+
+.academic-year.graduated {
+    background: #f5f3ff;
+    border-right: 4px solid #8b5cf6;
+}
+
+.year-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.year-icon {
+    font-size: 1.5rem;
+}
+
+.year-number {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.year-number strong {
+    color: #1a73e8;
+    font-size: 1.3rem;
+}
+
+.year-progress .progress-bar {
+    margin: 10px 0;
+}
+
+.progress-fill-year {
+    background: linear-gradient(90deg, #1a73e8, #0d9488);
+    height: 100%;
+    border-radius: 30px;
+    transition: width 0.5s ease;
+}
+
+.academic-year.warning .progress-fill-year {
+    background: linear-gradient(90deg, #f59e0b, #d97706);
+}
+
+.year-message {
+    margin-top: 12px;
+    padding: 8px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.year-message.success {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+/* تذييل الصفحة */
+.footer {
+    text-align: center;
+    padding: 20px;
+    color: white;
+    font-size: 0.9rem;
+}
+
+.footer i {
+    color: #ef4444;
+    margin: 0 4px;
+}
+
+.footer strong {
+    color: #fbbf24;
+}
+
 /* استجابة للجوال */
 @media (max-width: 768px) {
     body {
         padding: 10px;
+    }
+    
+    .header {
+        flex-direction: column;
+        text-align: center;
     }
     
     .course-item {
@@ -482,7 +632,7 @@ body {
     }
     
     .college-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
     }
     
     .results-grid {
@@ -492,14 +642,23 @@ body {
     .progress-section {
         grid-column: span 1;
     }
+    
+    .header-controls {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .conversion-switch, .language-switch {
+        width: 100%;
+        justify-content: center;
+    }
 }
 
-/* وضع RTL للعربي */
+/* RTL */
 [dir="rtl"] .course-item {
     direction: rtl;
 }
 
-/* تأثيرات إضافية */
 ::-webkit-scrollbar {
     width: 8px;
 }
@@ -509,85 +668,6 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #667eea;
+    background: #1a73e8;
     border-radius: 10px;
-}
-/* قسم تحويل المعدل داخل بطاقة الكلية */
-.conversion-section {
-    background: #f8f9ff;
-    border-radius: 15px;
-    padding: 15px;
-    margin: 20px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 15px;
-    border: 1px solid rgba(26,115,232,0.1);
-}
-
-.conversion-label {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-weight: 500;
-    color: #1a73e8;
-}
-
-.conversion-label i {
-    font-size: 1.1rem;
-}
-
-.conversion-label span {
-    font-size: 0.95rem;
-}
-
-.conversion-section .conversion-switch {
-    display: flex;
-    gap: 5px;
-    background: #fff;
-    border-radius: 40px;
-    padding: 4px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
-
-.conversion-section .mode-btn {
-    padding: 8px 25px;
-    border: none;
-    background: transparent;
-    border-radius: 30px;
-    cursor: pointer;
-    font-family: 'Tajawal', sans-serif;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    font-size: 0.85rem;
-}
-
-.conversion-section .mode-btn.active {
-    background: linear-gradient(135deg, #1a73e8, #0d9488);
-    color: white;
-    box-shadow: 0 2px 8px rgba(26,115,232,0.3);
-}
-
-.conversion-section .mode-btn:hover:not(.active) {
-    background: #e0e0e0;
-}
-
-/* تحسين للجوال */
-@media (max-width: 768px) {
-    .conversion-section {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .conversion-section .conversion-switch {
-        width: 100%;
-        justify-content: center;
-    }
-    
-    .conversion-section .mode-btn {
-        flex: 1;
-        text-align: center;
-        padding: 8px 15px;
-    }
 }

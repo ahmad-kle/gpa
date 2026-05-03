@@ -31,42 +31,62 @@
                 <i class="fas fa-calculator"></i>
                 <span>GPA<span>Calculator</span></span>
             </div>
-            <div class="language-switch">
-                <button id="langAr" class="lang-btn active">عربي</button>
-                <button id="LangEn" class="lang-btn">English</button>
+            <div class="header-controls">
+
+                <div class="language-switch">
+                    <button id="langAr" class="lang-btn active">عربي</button>
+                    <button id="langEn" class="lang-btn">English</button>
+                </div>
             </div>
         </div>
 
         <!-- بطاقة اختيار الكلية -->
-        <div class="card">
-            <div class="card-header">
-                <i class="fas fa-university"></i>
-                <h3 data-key="college_title">اختر كليتك</h3>
+<!-- بطاقة اختيار الكلية -->
+<div class="card">
+    <div class="card-header">
+        <i class="fas fa-university"></i>
+        <h3 data-key="college_title">اختر كليتك</h3>
+    </div>
+    <div class="card-body">
+        <div class="college-grid">
+            <div class="college-option active" data-hours="171" data-type="engineering" data-name="هندسة">
+                <i class="fas fa-cogs"></i>
+                <span>الهندسة</span>
+                <small>5 سنوات - 171 ساعة</small>
+                <small class="college-detail">ترقية: 23 | 51 | 82 | 114</small>
             </div>
-            <div class="card-body">
-                <div class="college-grid">
-                    <div class="college-option" data-hours="171" data-name="هندسة">
-                        <i class="fas fa-cogs"></i>
-                        <span>الهندسة</span>
-                        <small>171 ساعة</small>
-                    </div>
-                    <div class="college-option" data-hours="132" data-name="إدارة">
-                        <i class="fas fa-chart-line"></i>
-                        <span>إدارة الأعمال</span>
-                        <small>132 ساعة</small>
-                    </div>
-                    <div class="college-option" data-hours="247" data-name="طب">
-                        <i class="fas fa-heartbeat"></i>
-                        <span>الطب</span>
-                        <small>247 ساعة</small>
-                    </div>
-                </div>
-                <div class="custom-hours">
-                    <label data-key="total_hours_label">إجمالي ساعات التخرج:</label>
-                    <input type="number" id="totalGraduationHours" class="input-field" placeholder="مثال: 171" value="171">
-                </div>
+            <div class="college-option" data-hours="132" data-type="management" data-name="إدارة">
+                <i class="fas fa-chart-line"></i>
+                <span>الإدارة</span>
+                <small>4 سنوات - 132 ساعة</small>
+                <small class="college-detail">ترقية: 23 | 51 | 82</small>
+            </div>
+            <div class="college-option" data-hours="247" data-type="medicine" data-name="طب">
+                <i class="fas fa-heartbeat"></i>
+                <span>الطب</span>
+                <small>6 سنوات - 247 ساعة</small>
+                <small class="college-detail">ترقية: 30 | 65 | 100 | 135 | 170</small>
             </div>
         </div>
+        
+        <!-- قسم تحويل المعدل - مكانه الجديد تحت الكليات -->
+        <div class="conversion-section">
+            <div class="conversion-label">
+                <i class="fas fa-exchange-alt"></i>
+                <span data-key="conversion_title">نظام حساب المعدل:</span>
+            </div>
+            <div class="conversion-switch">
+                <button id="gpaMode" class="mode-btn active">نظام 4.0</button>
+                <button id="percentMode" class="mode-btn">نظام مئوي %</button>
+            </div>
+        </div>
+        
+        <div class="custom-hours">
+            <label data-key="total_hours_label">إجمالي ساعات التخرج:</label>
+            <input type="number" id="totalGraduationHours" class="input-field" placeholder="مثال: 171" value="171">
+        </div>
+    </div>
+</div>
 
         <!-- بطاقة الساعات السابقة والمعدل القديم -->
         <div class="card">
@@ -75,12 +95,11 @@
                 <h3 data-key="previous_title">البيانات السابقة</h3>
             </div>
             <div class="card-body row-2">
-                <div class="input-group">
-                    <label data-key="completed_hours">الساعات المنجزة سابقاً:</label>
+                <div class="input-group"><label data-key="completed_hours">الساعات المنجزة سابقاً:</label>
                     <input type="number" id="completedHours" class="input-field" step="1" min="0" value="0">
-                    </div>
+                </div>
                 <div class="input-group">
-                    <label data-key="old_gpa">المعدل التراكمي القديم (من 4):</label>
+                    <label data-key="old_gpa">المعدل التراكمي القديم:</label>
                     <input type="number" id="oldGpa" class="input-field" step="0.01" min="0" max="4" value="0">
                 </div>
             </div>
@@ -96,29 +115,7 @@
                 </button>
             </div>
             <div class="card-body">
-                <div id="coursesContainer" class="courses-container">
-                    <!-- سيتم إضافة المواد ديناميكياً هنا -->
-                </div>
-            </div>
-        </div>
-
-        <!-- بطاقة رفع الصورة (OCR) -->
-        <div class="card">
-            <div class="card-header">
-                <i class="fas fa-image"></i>
-                <h3 data-key="ocr_title">رفع صورة العلامات</h3>
-            </div>
-            <div class="card-body">
-                <div class="upload-area" id="uploadArea">
-                    <i class="fas fa-cloud-upload-alt"></i>
-                    <p data-key="upload_text">اضغط أو اسحب صورة العلامات هنا</p>
-                    <input type="file" id="ocrImageInput" accept="image/*" hidden>
-                    <small data-key="ocr_note">*سيتم استخراج النصوص تجريبياً (يمكن تعديلها)</small>
-                </div>
-                <div id="ocrResult" class="ocr-result hidden">
-                    <h4>النصوص المستخرجة:</h4>
-                    <div id="ocrTexts"></div>
-                </div>
+                <div id="coursesContainer" class="courses-container"></div>
             </div>
         </div>
 
@@ -142,17 +139,20 @@
                 <div class="result-item">
                     <span class="result-label" data-key="semester_gpa">المعدل الفصلي:</span>
                     <span id="semesterGpa" class="result-value">0.00</span>
-                    <span>/ 4.00</span>
+                    <span id="semesterUnit" class="result-unit">/ 4.00</span>
                 </div>
                 <div class="result-item">
                     <span class="result-label" data-key="cumulative_gpa">المعدل التراكمي:</span>
                     <span id="cumulativeGpa" class="result-value">0.00</span>
-                    <span>/ 4.00</span>
+                    <span id="cumulativeUnit" class="result-unit">/ 4.00</span>
                 </div>
                 <div class="result-item">
                     <span class="result-label" data-key="total_hours">إجمالي الساعات:</span>
                     <span id="totalHours" class="result-value">0</span>
-                    <span id="gradHoursTarget"></span>
+                </div>
+                <div class="result-item evaluation-item">
+                    <span class="result-label" data-key="evaluation">تقييم المعدل:</span>
+                    <span id="evaluationText" class="evaluation-badge"></span>
                 </div>
                 <div class="progress-section">
                     <label data-key="progress_label">نسبة الإنجاز:</label>
@@ -162,6 +162,14 @@
                     <span id="progressPercent">0%</span>
                 </div>
             </div>
+        </div>
+
+        <!-- بطاقة السنة الدراسية -->
+        <div id="academicYearSection" class="academic-year-card hidden"></div>
+
+        <!-- تذييل الصفحة مع اسم المصمم -->
+        <div class="footer">
+            <p>Designed with <i class="fas fa-heart"></i> BY AHMAD KLLAWE | 2026</p>
         </div>
     </div>
 </div>
