@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>نظام حساب المعدل التراكمي</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<!-- شاشة الترحيب -->
+<div id="splashScreen" class="splash-screen">
+    <div class="splash-content">
+        <div class="splash-icon">
+            <i class="fas fa-graduation-cap"></i>
+        </div>
+        <h1>نظام حساب المعدل</h1>
+        <p>GPA Calculator System</p>
+        <div class="spinner"></div>
+    </div>
+</div>
+
+<!-- المحتوى الرئيسي -->
+<div id="mainContent" class="main-content hidden">
+    <div class="container">
+        <!-- رأس الصفحة -->
+        <div class="header">
+            <div class="logo">
+                <i class="fas fa-calculator"></i>
+                <span>GPA<span>Calculator</span></span>
+            </div>
+            <div class="language-switch">
+                <button id="langAr" class="lang-btn active">عربي</button>
+                <button id="LangEn" class="lang-btn">English</button>
+            </div>
+        </div>
+
+        <!-- بطاقة اختيار الكلية -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-university"></i>
+                <h3 data-key="college_title">اختر كليتك</h3>
+            </div>
+            <div class="card-body">
+                <div class="college-grid">
+                    <div class="college-option" data-hours="171" data-name="هندسة">
+                        <i class="fas fa-cogs"></i>
+                        <span>الهندسة</span>
+                        <small>171 ساعة</small>
+                    </div>
+                    <div class="college-option" data-hours="132" data-name="إدارة">
+                        <i class="fas fa-chart-line"></i>
+                        <span>إدارة الأعمال</span>
+                        <small>132 ساعة</small>
+                    </div>
+                    <div class="college-option" data-hours="247" data-name="طب">
+                        <i class="fas fa-heartbeat"></i>
+                        <span>الطب</span>
+                        <small>247 ساعة</small>
+                    </div>
+                </div>
+                <div class="custom-hours">
+                    <label data-key="total_hours_label">إجمالي ساعات التخرج:</label>
+                    <input type="number" id="totalGraduationHours" class="input-field" placeholder="مثال: 171" value="171">
+                </div>
+            </div>
+        </div>
+
+        <!-- بطاقة الساعات السابقة والمعدل القديم -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-history"></i>
+                <h3 data-key="previous_title">البيانات السابقة</h3>
+            </div>
+            <div class="card-body row-2">
+                <div class="input-group">
+                    <label data-key="completed_hours">الساعات المنجزة سابقاً:</label>
+                    <input type="number" id="completedHours" class="input-field" step="1" min="0" value="0">
+                    </div>
+                <div class="input-group">
+                    <label data-key="old_gpa">المعدل التراكمي القديم (من 4):</label>
+                    <input type="number" id="oldGpa" class="input-field" step="0.01" min="0" max="4" value="0">
+                </div>
+            </div>
+        </div>
+
+        <!-- بطاقة المواد الدراسية -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-book-open"></i>
+                <h3 data-key="courses_title">مواد الفصل الحالي</h3>
+                <button id="addCourseBtn" class="btn-add">
+                    <i class="fas fa-plus"></i> <span data-key="add_course">إضافة مادة</span>
+                </button>
+            </div>
+            <div class="card-body">
+                <div id="coursesContainer" class="courses-container">
+                    <!-- سيتم إضافة المواد ديناميكياً هنا -->
+                </div>
+            </div>
+        </div>
+
+        <!-- بطاقة رفع الصورة (OCR) -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-image"></i>
+                <h3 data-key="ocr_title">رفع صورة العلامات</h3>
+            </div>
+            <div class="card-body">
+                <div class="upload-area" id="uploadArea">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <p data-key="upload_text">اضغط أو اسحب صورة العلامات هنا</p>
+                    <input type="file" id="ocrImageInput" accept="image/*" hidden>
+                    <small data-key="ocr_note">*سيتم استخراج النصوص تجريبياً (يمكن تعديلها)</small>
+                </div>
+                <div id="ocrResult" class="ocr-result hidden">
+                    <h4>النصوص المستخرجة:</h4>
+                    <div id="ocrTexts"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- أزرار الحساب -->
+        <div class="action-buttons">
+            <button id="calculateBtn" class="btn-primary">
+                <i class="fas fa-chart-simple"></i> <span data-key="calculate">احسب المعدل</span>
+            </button>
+            <button id="resetBtn" class="btn-secondary">
+                <i class="fas fa-rotate-right"></i> <span data-key="reset">إعادة تعيين</span>
+            </button>
+        </div>
+
+        <!-- عرض النتائج -->
+        <div class="results-card">
+            <div class="results-header">
+                <i class="fas fa-chart-line"></i>
+                <h3 data-key="results_title">النتائج</h3>
+            </div>
+            <div class="results-grid">
+                <div class="result-item">
+                    <span class="result-label" data-key="semester_gpa">المعدل الفصلي:</span>
+                    <span id="semesterGpa" class="result-value">0.00</span>
+                    <span>/ 4.00</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label" data-key="cumulative_gpa">المعدل التراكمي:</span>
+                    <span id="cumulativeGpa" class="result-value">0.00</span>
+                    <span>/ 4.00</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label" data-key="total_hours">إجمالي الساعات:</span>
+                    <span id="totalHours" class="result-value">0</span>
+                    <span id="gradHoursTarget"></span>
+                </div>
+                <div class="progress-section">
+                    <label data-key="progress_label">نسبة الإنجاز:</label>
+                    <div class="progress-bar">
+                        <div id="progressFill" class="progress-fill"></div>
+                    </div>
+                    <span id="progressPercent">0%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
