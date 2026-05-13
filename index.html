@@ -1,23 +1,67 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
+    <meta name="google-site-verification" content="CRehjQR1EXnFRFnHbs4YkN5Hv_U6YcAf2x8yEocPWBc" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>نظام حساب المعدل التراكمي</title>
+    <title>نظام حساب المعدل التراكمي - GPA Calculator</title>
     <link rel="stylesheet" href="assets/css/style1.css">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="shortcut icon" href="favicon.svg"> <!-- للمتصفحات القديمة -->
+<!-- اللغة والترميز -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>حاسبة المعدل التراكمي GPA | أداة مجانية ودقيقة | تصميم أحمد كلاوي</title>
+<meta name="description" content="أداة احترافية لحساب المعدل التراكمي GPA من 4 وفق نظام الجامعات السورية. دعم الكليات الهندسية والإدارية والطبية، تحويل GPA إلى نسبة مئوية، وتقييم المعدل. مجاني وسريع.">
+<meta name="keywords" content="حساب المعدل التراكمي, GPA calculator, حساب المعدل من 4, المعدل التراكمي سوريا, تقدير المعدل, أحمد كلاوي">
+<meta name="author" content="أحمد كلاوي">
+<meta name="robots" content="index, follow">
+<meta name="language" content="ar">
+<meta property="og:title" content="حاسبة المعدل التراكمي GPA">
+<meta property="og:description" content="احسب معدلك التراكمي بسهولة ودقة. يدعم الكليات المختلفة والتحويل إلى نسبة مئوية.">
+<meta property="og:image" content="https://ahmad-kle.github.io/gpa/favicon-large.png"> <!-- رابط صورة تمثل الموقع -->
+<meta property="og:url" content="https://ahmad-kle.github.io/gpa/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ar_AR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="حاسبة المعدل التراكمي GPA">
+<meta name="twitter:description" content="أداة مجانية ودقيقة لحساب المعدل التراكمي من 4.">
+<meta name="twitter:image" content="https://ahmad-kle.github.io/gpa/favicon-large.png">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "حاسبة المعدل التراكمي GPA",
+  "description": "أداة لحساب المعدل التراكمي من 4 مع دعم الكليات السورية والتحويل إلى نسبة مئوية.",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "All",
+  "author": {
+    "@type": "Person",
+    "name": "أحمد كلاوي"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "url": "https://ahmad-kle.github.io/gpa/",
+  "inLanguage": "ar"
+}
+</script>
 </head>
 <body>
 
 <!-- شاشة الترحيب -->
 <div id="splashScreen" class="splash-screen">
     <div class="splash-content">
-        <div class="splash-icon">
-            <i class="fas fa-graduation-cap"></i>
-        </div>
+        <div class="splash-icon"><i class="fas fa-graduation-cap"></i></div>
         <h1>نظام حساب المعدل</h1>
         <p>GPA Calculator System</p>
+        <div class="designer-credit">تصميم وتطوير أحمد كلاوي<br>Designed & Developed by Ahmad Kllawe</div>
         <div class="spinner"></div>
     </div>
 </div>
@@ -25,151 +69,143 @@
 <!-- المحتوى الرئيسي -->
 <div id="mainContent" class="main-content hidden">
     <div class="container">
-        <!-- رأس الصفحة -->
         <div class="header">
-            <div class="logo">
-                <i class="fas fa-calculator"></i>
-                <span>GPA<span>Calculator</span></span>
-            </div>
-            <div class="header-controls">
-
-                <div class="language-switch">
-                    <button id="langAr" class="lang-btn active">عربي</button>
-                    <button id="langEn" class="lang-btn">English</button>
-                </div>
+            <div class="logo"><i class="fas fa-calculator"></i><span>GPA<span>Calculator</span></span></div>
+            <div class="language-switch">
+                <button id="langAr" class="lang-btn active">عربي</button>
+                <button id="langEn" class="lang-btn">English</button>
             </div>
         </div>
 
-        <!-- بطاقة اختيار الكلية -->
-<!-- بطاقة اختيار الكلية -->
-<div class="card">
-    <div class="card-header">
-        <i class="fas fa-university"></i>
-        <h3 data-key="college_title">اختر كليتك</h3>
-    </div>
-    <div class="card-body">
-        <div class="college-grid">
-            <div class="college-option active" data-hours="171" data-type="engineering" data-name="هندسة">
-                <i class="fas fa-cogs"></i>
-                <span>الهندسة</span>
-                <small>5 سنوات - 171 ساعة</small>
-                <small class="college-detail">ترقية: 23 | 51 | 82 | 114</small>
-            </div>
-            <div class="college-option" data-hours="132" data-type="management" data-name="إدارة">
-                <i class="fas fa-chart-line"></i>
-                <span>الإدارة</span>
-                <small>4 سنوات - 132 ساعة</small>
-                <small class="college-detail">ترقية: 23 | 51 | 82</small>
-            </div>
-            <div class="college-option" data-hours="247" data-type="medicine" data-name="طب">
-                <i class="fas fa-heartbeat"></i>
-                <span>الطب</span>
-                <small>6 سنوات - 247 ساعة</small>
-                <small class="college-detail">ترقية: 30 | 65 | 100 | 135 | 170</small>
-            </div>
-        </div>
-        
-        <!-- قسم تحويل المعدل - مكانه الجديد تحت الكليات -->
-        <div class="conversion-section">
-            <div class="conversion-label">
-                <i class="fas fa-exchange-alt"></i>
-                <span data-key="conversion_title">نظام حساب المعدل:</span>
-            </div>
-            <div class="conversion-switch">
-                <button id="gpaMode" class="mode-btn active">نظام 4.0</button>
-                <button id="percentMode" class="mode-btn">نظام مئوي %</button>
-            </div>
-        </div>
-        
-        <div class="custom-hours">
-            <label data-key="total_hours_label">إجمالي ساعات التخرج:</label>
-            <input type="number" id="totalGraduationHours" class="input-field" placeholder="مثال: 171" value="171">
-        </div>
-    </div>
-</div>
-
-        <!-- بطاقة الساعات السابقة والمعدل القديم -->
+        <!-- الكلية ونظام المعدل -->
         <div class="card">
-            <div class="card-header">
-                <i class="fas fa-history"></i>
-                <h3 data-key="previous_title">البيانات السابقة</h3>
-            </div>
-            <div class="card-body row-2">
-                <div class="input-group"><label data-key="completed_hours">الساعات المنجزة سابقاً:</label>
-                    <input type="number" id="completedHours" class="input-field" step="1" min="0" value="0">
-                </div>
-                <div class="input-group">
-                    <label data-key="old_gpa">المعدل التراكمي القديم:</label>
-                    <input type="number" id="oldGpa" class="input-field" step="0.01" min="0" max="4" value="0">
-                </div>
-            </div>
-        </div>
-
-        <!-- بطاقة المواد الدراسية -->
-        <div class="card">
-            <div class="card-header">
-                <i class="fas fa-book-open"></i>
-                <h3 data-key="courses_title">مواد الفصل الحالي</h3>
-                <button id="addCourseBtn" class="btn-add">
-                    <i class="fas fa-plus"></i> <span data-key="add_course">إضافة مادة</span>
-                </button>
-            </div>
+            <div class="card-header"><i class="fas fa-university"></i><h3 data-key="college_title">اختر كليتك</h3></div>
             <div class="card-body">
-                <div id="coursesContainer" class="courses-container"></div>
+                <div class="college-grid">
+                    <div class="college-option active" data-hours="171" data-type="engineering" data-name="هندسة">
+                        <i class="fas fa-cogs"></i><span>الهندسة</span><small>5 سنوات - 171 ساعة</small>
+                        <small class="college-detail">ترقية: 23 | 51 | 82 | 114</small>
+                    </div>
+                    <div class="college-option" data-hours="139" data-type="management" data-name="إدارة">
+                        <i class="fas fa-chart-line"></i><span>الإدارة</span><small>4 سنوات - 139 ساعة</small>
+                        <small class="college-detail">ترقية: 23 | 51 | 82</small>
+                    </div>
+                    <div class="college-option" data-hours="260" data-type="medicine" data-name="طب">
+                        <i class="fas fa-heartbeat"></i><span>الطب</span><small>6 سنوات - 260 ساعة</small>
+                        <small class="college-detail">ترقية: 30 | 65 | 100 | 135 | 170</small>
+                    </div>
+                </div>
+                <div class="conversion-section">
+                    <div class="conversion-label"><i class="fas fa-exchange-alt"></i><span data-key="conversion_title">نظام حساب المعدل:</span></div>
+                    <div class="conversion-switch">
+                        <button id="gpaMode" class="mode-btn active">نظام 4.0</button>
+                        <button id="percentMode" class="mode-btn">نظام مئوي %</button>
+                    </div>
+                </div>
+                <div class="custom-hours">
+                    <label data-key="total_hours_label">إجمالي ساعات التخرج:</label>
+                    <input type="number" id="totalGraduationHours" class="input-field" value="171">
+                </div>
             </div>
+        </div>
+
+        <!-- الساعات السابقة -->
+        <div class="card">
+            <div class="card-header"><i class="fas fa-history"></i><h3 data-key="previous_title">البيانات السابقة</h3></div>
+            <div class="card-body row-2">
+                <div class="input-group"><label data-key="completed_hours">الساعات المنجزة سابقاً:</label><input type="number" id="completedHours" class="input-field" value="0"></div>
+                <div class="input-group"><label data-key="old_gpa">المعدل التراكمي القديم:</label><input type="number" id="oldGpa" class="input-field" step="0.01" min="0" max="4" value="0"></div>
+            </div>
+        </div>
+
+        <!-- المواد -->
+        <div class="card">
+            <div class="card-header"><i class="fas fa-book-open"></i><h3 data-key="courses_title">مواد الفصل الحالي</h3><button id="addCourseBtn" class="btn-add"><i class="fas fa-plus"></i> <span data-key="add_course">إضافة مادة</span></button></div>
+            <div class="card-body"><div id="coursesContainer" class="courses-container"></div></div>
         </div>
 
         <!-- أزرار الحساب -->
         <div class="action-buttons">
-            <button id="calculateBtn" class="btn-primary">
-                <i class="fas fa-chart-simple"></i> <span data-key="calculate">احسب المعدل</span>
-            </button>
-            <button id="resetBtn" class="btn-secondary">
-                <i class="fas fa-rotate-right"></i> <span data-key="reset">إعادة تعيين</span>
-            </button>
+            <button id="calculateBtn" class="btn-primary"><i class="fas fa-chart-simple"></i> <span data-key="calculate">احسب المعدل</span></button>
+            <button id="resetBtn" class="btn-secondary"><i class="fas fa-rotate-right"></i> <span data-key="reset">إعادة تعيين</span></button>
         </div>
 
-        <!-- عرض النتائج -->
-        <div class="results-card">
-            <div class="results-header">
+        <!-- واجهة النتائج المطورة -->
+        <div class="results-enhanced" id="resultsEnhanced">
+            <div class="results-enhanced-header">
                 <i class="fas fa-chart-line"></i>
-                <h3 data-key="results_title">النتائج</h3>
+                <h3 data-key="results_title">النتائج التفصيلية</h3>
             </div>
-            <div class="results-grid">
-                <div class="result-item">
-                    <span class="result-label" data-key="semester_gpa">المعدل الفصلي:</span>
-                    <span id="semesterGpa" class="result-value">0.00</span>
-                    <span id="semesterUnit" class="result-unit">/ 4.00</span>
-                </div>
-                <div class="result-item">
-                    <span class="result-label" data-key="cumulative_gpa">المعدل التراكمي:</span>
-                    <span id="cumulativeGpa" class="result-value">0.00</span>
-                    <span id="cumulativeUnit" class="result-unit">/ 4.00</span>
-                </div>
-                <div class="result-item">
-                    <span class="result-label" data-key="total_hours">إجمالي الساعات:</span>
-                    <span id="totalHours" class="result-value">0</span>
-                </div>
-                <div class="result-item evaluation-item">
-                    <span class="result-label" data-key="evaluation">تقييم المعدل:</span>
-                    <span id="evaluationText" class="evaluation-badge"></span>
-                </div>
-                <div class="progress-section">
-                    <label data-key="progress_label">نسبة الإنجاز:</label>
-                    <div class="progress-bar">
-                        <div id="progressFill" class="progress-fill"></div>
+            <div class="results-enhanced-grid">
+                <!-- المعدل الفصلي وتقييمه -->
+                <div class="enhanced-card">
+                    <div class="enhanced-icon"><i class="fas fa-book-open"></i></div>
+                    <div class="enhanced-info">
+                        <span class="enhanced-label" data-key="semester_gpa">المعدل الفصلي</span>
+                        <div class="enhanced-value">
+                            <span id="semesterGpaValue">0.00</span>
+                            <span id="semesterUnitLabel" class="unit">/4.00</span>
+                        </div>
+                        <span id="semesterEval" class="enhanced-eval">—</span>
                     </div>
-                    <span id="progressPercent">0%</span>
+                </div>
+                <!-- المعدل التراكمي وتقييمه -->
+                <div class="enhanced-card">
+                    <div class="enhanced-icon"><i class="fas fa-star"></i></div>
+                    
+                    <div class="enhanced-info">
+                        <span class="enhanced-label" data-key="cumulative_gpa">المعدل التراكمي</span>
+                        <div class="enhanced-value">
+                            <span id="cumulativeGpaValue">0.00</span>
+                            <span id="cumulativeUnitLabel" class="unit">/4.00</span>
+                        </div>
+                        <span id="cumulativeEval" class="enhanced-eval">—</span>
+                    </div>
+                </div>
+                <!-- عدد الساعات الكلي -->
+                <div class="enhanced-card">
+                    <div class="enhanced-icon"><i class="fas fa-clock"></i></div>
+                    <div class="enhanced-info">
+                        <span class="enhanced-label" data-key="total_hours">إجمالي الساعات المنجزة</span>
+                        <div class="enhanced-value"><span id="totalHoursValue">0</span><span class="unit"> ساعة</span></div>
+                    </div>
+                </div>
+                <!-- السنة الدراسية الحالية -->
+                <div class="enhanced-card">
+                    <div class="enhanced-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="enhanced-info">
+                        <span class="enhanced-label">السنة الدراسية الحالية</span>
+                        <div class="enhanced-value"><span id="currentYearValue">—</span></div>
+                    </div>
+                </div>
+                <!-- المتبقي للتخرج -->
+                <div class="enhanced-card">
+                    <div class="enhanced-icon"><i class="fas fa-flag-checkered"></i></div>
+                    <div class="enhanced-info">
+                        <span class="enhanced-label">المتبقي للتخرج</span>
+                        <div class="enhanced-value"><span id="remainingToGraduate">—</span><span class="unit"> ساعة</span></div>
+                    </div>
+                </div>
+                <!-- المتبقي للترقية للسنة التالية -->
+                <div class="enhanced-card">
+                    <div class="enhanced-icon"><i class="fas fa-arrow-up"></i></div>
+                    <div class="enhanced-info">
+                        <span class="enhanced-label">المتبقي للترقية للسنة التالية</span>
+                        <div class="enhanced-value"><span id="remainingToNextYear">—</span><span class="unit"> ساعة</span></div>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <!-- بطاقة السنة الدراسية -->
-        <div id="academicYearSection" class="academic-year-card hidden"></div>
-
-        <!-- تذييل الصفحة مع اسم المصمم -->
-        <div class="footer">
-            <p>Designed with <i class="fas fa-heart"></i> BY AHMAD KLLAWE | 2026</p>
+            <!-- شريط التقدم للتخرج -->
+            <div class="graduation-progress">
+                <div class="progress-label">نسبة الإنجاز نحو التخرج</div>
+                <div class="progress-bar-big">
+                    <div id="graduationProgressFill" class="progress-fill-big"></div>
+                </div>
+                <div class="progress-percent"><span id="graduationPercent">0</span>%</div>
+            </div>
+            <div class="results-footer">
+                تصميم وتطوير أحمد كلاوي | Designed & Developed by Ahmad Kllawe
+            </div>
         </div>
     </div>
 </div>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <style>
+      .bg { fill: #1a73e8; }
+      .icon { fill: #ffffff; }
+    </style>
+  </defs>
+  <rect width="512" height="512" rx="128" class="bg"/>
+  <!-- قبعة التخرج -->
+  <path class="icon" d="M256 130 L90 202 L256 274 L422 202 L256 130 Z" />
+  <!-- قاعدة القبعة -->
+  <rect x="200" y="270" width="112" height="20" rx="6" class="icon" />
+  <!-- شرابة -->
+  <path class="icon" d="M310 275 Q340 300 330 330" stroke="white" stroke-width="12" fill="none" stroke-linecap="round" />
+  <circle cx="330" cy="330" r="10" class="icon" />
+  <!-- علامة يساوي للحساب -->
+  <rect x="235" y="380" width="90" height="10" rx="5" class="icon" />
+  <rect x="235" y="400" width="90" height="10" rx="5" class="icon" />
+</svg>
