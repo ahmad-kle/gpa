@@ -354,3 +354,162 @@ body {
     .course-item { grid-template-columns: 1fr; }
     .action-buttons { flex-direction: column; }
 }
+/* ===== تحسين واجهة إضافة المواد ===== */
+.courses-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.course-item {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border-radius: 20px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border: 1px solid #e2e8f0;
+    position: relative;
+}
+
+.course-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    border-color: #cbd5e1;
+}
+
+/* حقل رمز المادة (قائمة منسدلة) */
+.course-grade {
+    flex: 2;
+    min-width: 120px;
+}
+
+.grade-select {
+    width: 100%;
+    padding: 12px 16px;
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: 14px;
+    font-family: 'Tajawal', monospace;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1e293b;
+    cursor: pointer;
+    transition: all 0.2s;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231a73e8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: left 12px center;
+    background-size: 16px;
+}
+
+.grade-select:hover {
+    border-color: #1a73e8;
+}
+
+.grade-select:focus {
+    outline: none;
+    border-color: #1a73e8;
+    box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.1);
+}
+
+/* حقل عدد الساعات */
+.course-hours {
+    flex: 1;
+    min-width: 100px;
+}
+
+.hours-input {
+    width: 100%;
+    padding: 12px 16px;
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: 14px;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #0f172a;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+.hours-input:focus {
+    outline: none;
+    border-color: #0d9488;
+    box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
+}
+
+.hours-input:hover {
+    border-color: #94a3b8;
+}
+
+/* زر الحذف */
+.delete-course {
+    background: #fee2e2;
+    border: none;
+    color: #dc2626;
+    width: 44px;
+    height: 44px;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.delete-course:hover {
+    background: #dc2626;
+    color: white;
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 0 4px 10px rgba(220, 38, 38, 0.3);
+}
+
+.delete-course i {
+    transition: transform 0.1s;
+}
+
+.delete-course:hover i {
+    transform: scale(1.1);
+}
+
+/* زر إضافة مادة جديد (الموجود في رأس البطاقة) */
+.btn-add {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 20px;
+    border-radius: 40px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.btn-add:hover {
+    background: rgba(255, 255, 255, 0.35);
+    transform: scale(1.02);
+    border-color: white;
+}
+
+/* للشاشات الصغيرة */
+@media (max-width: 640px) {
+    .course-item {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+    .course-grade {
+        flex: 1 1 100%;
+        min-width: auto;
+    }
+    .course-hours {
+        flex: 1;
+        min-width: auto;
+    }
+    .delete-course {
+        width: 48px;
+        height: 48px;
+    }
+}
